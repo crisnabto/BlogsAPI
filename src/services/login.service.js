@@ -30,7 +30,19 @@ const validateLogin = async ({ email, password }) => {
     return token;
 };
 
+const validateToken = (token) => {
+    if (!token) {
+        const err = new Error('Token obrigatorio');
+        throw err;
+    }
+
+    const user = jwtUtil.validateToken(token);
+
+    return user;
+};
+
 module.exports = {
     validateBody,
     validateLogin,
+    validateToken,
 };
