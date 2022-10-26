@@ -30,6 +30,10 @@ app.post('/categories',
 userValidation.validateToken,
 categoryController.createNewCategory);
 
+app.get('/categories',
+userValidation.validateToken,
+categoryController.showAllCategories);
+
 // app.post('/user', userController)
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
