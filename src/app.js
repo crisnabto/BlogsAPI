@@ -12,12 +12,14 @@ app.use(express.json());
 // ...
 app.post('/login', loginController.login);
 
-// app.use(userValidation.validateToken);
-
 app.post('/user', 
 userValidation.validateNewUserData,
 userValidation.validateNewUserEmail,
 userController.createNewUser);
+
+app.get('/user',
+userValidation.validateToken,
+userController.getAllUsers);
 
 // app.post('/user', userController)
 // É importante exportar a constante `app`,

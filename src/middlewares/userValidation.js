@@ -1,8 +1,11 @@
 const loginService = require('../services/login.service');
 
-const validateToken = async (req, _res, next) => {
+const validateToken = async (req, res, next) => {
     const { authorization } = req.headers;
-    loginService.validateToken(authorization);
+
+    const { error } = await loginService.validateToken(authorization);
+
+    if (error) return res.status(401).json({ message: error });
 
     next();
 };
