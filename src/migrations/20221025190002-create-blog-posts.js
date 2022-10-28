@@ -10,32 +10,29 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
-        allowNull: false,
         type: Sequelize.STRING,
       },
       content: {
-        allowNull: false,
         type: Sequelize.STRING,
       },
       user_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        defaultValue: 1,
         references: {
           model: 'users',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       published: {
-        allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: new Date()
+        defaultValue: new Date(),
       },
       updated: {
-        allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: new Date()
+        defaultValue: new Date(),
       }
     })
   },
@@ -44,3 +41,4 @@ module.exports = {
     await queryInterface.dropTable('blog_posts')
   }
 };
+

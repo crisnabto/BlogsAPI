@@ -1,11 +1,18 @@
 const loginService = require('../services/login.service');
+const jwtUtil = require('../utils/jwt.util');
 
 const validateToken = async (req, res, next) => {
     const { authorization } = req.headers;
+    if (!authorization) return res.status(401).json({ message: 'Token not found' });
+    
+    const user = jwtUtil.validateToken(authorization);
+    // console.log(authorization);
 
     const { error } = await loginService.validateToken(authorization);
 
     if (error) return res.status(401).json({ message: error });
+    // console.log(user);
+    req.user = user;
 
     next();
 };

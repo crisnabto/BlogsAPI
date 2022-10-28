@@ -2,7 +2,9 @@ const express = require('express');
 const loginController = require('./controllers/login.controller');
 const userController = require('./controllers/user.controller');
 const categoryController = require('./controllers/category.controller');
+const postController = require('./controllers/post.controller');
 const userValidation = require('./middlewares/userValidation');
+const postValidation = require('./middlewares/postValidation');
 
 // ...
 
@@ -34,9 +36,18 @@ app.get('/categories',
 userValidation.validateToken,
 categoryController.showAllCategories);
 
-// app.post('/post',
+app.post('/post',
+userValidation.validateToken,
+postValidation.postValidate,
+postValidation.postValidateCategory,
+postController.createNewPost);
+
+app.get('/post',
 // userValidation.validateToken,
-// )
+postController.showAllPosts);
+
+app.get('/post/:id',
+postController.getPostById);
 
 // app.post('/user', userController)
 // É importante exportar a constante `app`,

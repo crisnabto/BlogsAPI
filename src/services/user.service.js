@@ -4,6 +4,7 @@ const { createToken } = require('../utils/jwt.util');
 
 const findByEmail = async (email) => {
     const alreadyUser = await User.findOne({ where: { email } });
+    console.log(alreadyUser);
     if (alreadyUser) return alreadyUser;
 };
 
