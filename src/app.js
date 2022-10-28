@@ -43,10 +43,11 @@ postValidation.postValidateCategory,
 postController.createNewPost);
 
 app.get('/post',
-// userValidation.validateToken,
+userValidation.validateToken,
 postController.showAllPosts);
 
 app.get('/post/:id',
+userValidation.validateToken,
 postController.getPostById);
 
 // app.post('/user', userController)
