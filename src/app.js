@@ -46,6 +46,10 @@ app.get('/post',
 userValidation.validateToken,
 postController.showAllPosts);
 
+app.get('/post/search',
+userValidation.validateToken,
+postController.findPostSearch);
+
 app.get('/post/:id',
 userValidation.validateToken,
 postController.getPostById);

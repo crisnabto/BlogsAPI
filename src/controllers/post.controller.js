@@ -89,4 +89,27 @@ const deletePost = async (req, res) => {
     return res.status(401).json({ message: 'Unauthorized user' });
 };
 
-module.exports = { createNewPost, showAllPosts, getPostById, updatePost, deletePost };
+const findPostSearch = async (req, res) => {
+    const searchTerm = req.query.q;
+
+    // console.log(searchTerm);
+    if (!searchTerm) {
+        const allPosts = await postService.showAllPosts();
+        return res.status(200).json(allPosts);
+    }
+
+    const findPost = await postService.findPostSearch(searchTerm);
+
+    if (!findPost) return res.status(200).json();
+
+    return res.status(200).json(findPost);
+};
+
+module.exports = { 
+    createNewPost,
+    showAllPosts,
+    getPostById,
+    updatePost,
+    deletePost,
+    findPostSearch,
+};
