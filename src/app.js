@@ -54,6 +54,10 @@ app.put('/post/:id',
 userValidation.validateToken,
 postController.updatePost);
 
+app.delete('/post/:id',
+userValidation.validateToken,
+postController.deletePost);
+
 // app.post('/user', userController)
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
