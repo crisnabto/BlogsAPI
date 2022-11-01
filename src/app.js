@@ -50,6 +50,10 @@ app.get('/post/:id',
 userValidation.validateToken,
 postController.getPostById);
 
+app.put('/post/:id',
+userValidation.validateToken,
+postController.updatePost);
+
 // app.post('/user', userController)
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
