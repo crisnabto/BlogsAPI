@@ -58,6 +58,10 @@ app.delete('/post/:id',
 userValidation.validateToken,
 postController.deletePost);
 
+app.delete('/user/me',
+userValidation.validateToken,
+userController.deleteSelf);
+
 // app.post('/user', userController)
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`

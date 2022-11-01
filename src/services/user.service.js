@@ -37,4 +37,10 @@ const getUserById = async (id) => {
     return userById.dataValues;
 };
 
-module.exports = { createNewUser, findByEmail, getAllUsers, getUserById };
+const deleteSelf = async (id) => {
+    const qtdRemoved = await User.destroy({ where: { id } });
+
+    return qtdRemoved > 0;
+};
+
+module.exports = { createNewUser, findByEmail, getAllUsers, getUserById, deleteSelf };

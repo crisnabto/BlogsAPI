@@ -32,4 +32,15 @@ const getUserById = async (req, res) => {
     return res.status(200).json(userById);
 };
 
-module.exports = { createNewUser, getAllUsers, getUserById };
+const deleteSelf = async (req, res) => {
+    const { email } = req.user;
+
+    const userRequest = await userService.findByEmail(email);
+
+    const userRequestId = userRequest.dataValues.id;
+
+    const deleteUser = await userService.deleteSelf(userRequestId);
+    if (deleteUser) return res.status(204).json();
+};
+
+module.exports = { createNewUser, getAllUsers, getUserById, deleteSelf };
