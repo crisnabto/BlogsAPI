@@ -1,13 +1,60 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+## Project Blogs API :computer:
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+API and database for producing content for a blog, using Node.js with the Sequelize package for implemeting CRUD operations on posts. The endpoints that were developed are connected to the database according to the principles of REST. The relationships between users and posts (login), and between posts and categories, were also implemented.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## :hammer_and_wrench: Tools
+
+:green_circle: Javascript
+
+:large_blue_circle: Node.js
+<br>
+
+:large_blue_circle: Sequelize
+<br>
+
+:large_blue_circle: MySQL
+<br>
+
+:large_blue_circle: JWT authentication
+<br>
+
+## :wrench:  Setup
+
+Clone the repository:
+
+```
+git clone git@github.com:crisnabto/BlogsAPI.git
+```
+
+<details>
+  <summary><strong>🐋 Running on Docker vs Locally</strong></summary><br />
+  
+  ## On Docker
+
+  > :information_source: Run the `node` service with the command `docker-compose up -d`.
+  
+  - These services will initialize a container named `blogs_api`.
+  
+  - From here you can run the `trybers_and_dragons` container via CLI or open it in VS Code..
+  
+  > :information_source: Use the command `docker exec -it blogs_api bash`.
+
+  - It will give you access to the interactive terminal of the container created by compose, which is running in the background.
+
+  > :information_source:  Install dependencies [**If any**] with `npm install` 
+    
+  - **⚠ Attention:** If you choose to use Docker, **ALL** commands available in `package.json` (npm start, npm test, npm run dev, ...) must be executed **INSIDE** the container, i.e., in the terminal that appears after executing the `docker exec` command mentioned above. 
+  
+---
+  
+  ## Without Docker
+  
+  > Install dependencies [**If any**] with `npm install
+
+  ✨ **Tip:** To run the project in this way, you must have `Node` installed on your computer.
+
+  ✨ **Tip:** The project expects the `Node` version used to be 16.
+
+  <br/>
+</details>
+
